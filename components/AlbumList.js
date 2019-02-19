@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends React.Component {
@@ -24,9 +24,9 @@ class AlbumList extends React.Component {
 
     render() {
       return (
-        <View>
+        <ScrollView>
           {this.renderAlbums()}
-        </View>
+        </ScrollView>
       );
     }
 }
