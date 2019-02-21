@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import {
+  View, Text, Image, Linking
+} from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
@@ -7,7 +9,7 @@ import Button from './Button';
 const AlbumDetail = ({ album }) => {
   const {
     // eslint-disable-next-line camelcase
-    thumbnail_image, title, artist, image
+    thumbnail_image, title, artist, image, url
   } = album;
   const {
     thumbnailStyle, headerContent, thumbnailContainer, headerText, imageStyle
@@ -36,7 +38,9 @@ const AlbumDetail = ({ album }) => {
       </CardSection>
 
       <CardSection>
-        <Button />
+        <Button onPress={() => Linking.openURL(url)}>
+          BUY NOW
+        </Button>
       </CardSection>
     </Card>
   );

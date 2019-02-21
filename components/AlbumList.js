@@ -6,11 +6,11 @@ import AlbumDetail from './AlbumDetail';
 class AlbumList extends React.Component {
   state = { albums: [] };
 
-    componentWillMount = () => {
+    componentWillMount = async () => {
       try {
-        fetch('https://rallycoding.herokuapp.com/api/music_albums')
-          .then(response => response.json())
-          .then(responseJson => this.setState({ albums: responseJson }));
+        const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums');
+        const resJson = await res.json();
+        this.setState({ albums: resJson });
       } catch (err) {
         console.log(err);
       }
